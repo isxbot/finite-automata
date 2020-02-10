@@ -6,6 +6,13 @@ import java.util.HashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/*
+ * Constructs a DFA from a file provided (arg[0]), and tests if strings in a
+ * second file (args[1]) are accepted by the DFA.
+ * 
+ * Note: the alphabet is not validated because we're guaranteed to get input
+ * strings of the correct alphabet, in the correct format.
+ */
 public class DFACheck {
     public static void main(String[] args) {
         ArrayList<String> states = new ArrayList<String>();
@@ -16,9 +23,9 @@ public class DFACheck {
         String startState = null;
         String currentState = null;
 
-        if(args.length == 0) {
+        if (args.length == 0) {
             System.err.println("DFACheck: no input files specified");
-        } else if(args.length == 1) {
+        } else if (args.length == 1) {
             System.err.println("DFACheck: invalid usage - the program must be given two files as input");
         }
 
@@ -46,7 +53,7 @@ public class DFACheck {
 
         // Map the transition function.
         deltas = buildDelta(states, dfaSpec);
-        
+
         // Get the first current state; Q0.
         startState = dfaSpec.get(dfaSpec.indexOf("% Q0") + 1);
 
