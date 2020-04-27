@@ -56,8 +56,8 @@ public class NFAConvert {
 		
 		// Print states
 		System.out.println("% Q");
-		for(String state : states) {
-			System.out.println(state);
+		for(String state : dfaDeltas.keySet()) {
+			System.out.println(state.toString());
 		}
 		// Print alphabet
 		System.out.println("% Sigma");
