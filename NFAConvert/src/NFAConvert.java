@@ -57,7 +57,7 @@ public class NFAConvert {
 		// Print states
 		System.out.println("% Q");
 		for(String state : dfaDeltas.keySet()) {
-			System.out.println(state.toString());
+			System.out.println("{" + state.toString() + "}");
 		}
 		// Print alphabet
 		System.out.println("% Sigma");
@@ -70,21 +70,21 @@ public class NFAConvert {
 		for(String state : nfaFinalStates) {
 			for(String key : dfaDeltas.keySet()) {
 				if(key.contains(state)) {
-					System.out.println(key);
+					System.out.println("{" + key + "}");
 				}
 			}
 		}
 		
 		// Print start state
 		System.out.println("% Q0");
-		System.out.println(startState);
+		System.out.println("{" + startState + "}");
 		
 		System.out.println("% Delta");
 		for (String name : dfaDeltas.keySet()) {
 			String key = name.toString();
 			HashMap<String, String> values = dfaDeltas.get(name);
 			for(String input : values.keySet()) {
-			    System.out.println(key + " " + input + " " + values.get(input));
+			    System.out.println("{" + key + "}" +  " " + input + " " + "{" + values.get(input) + "}");
 			}
 		}
 	}
