@@ -26,6 +26,8 @@ I
 A
 % Delta
 A 0 B
+A E J
+A E D
 A 1 C
 B 0 B
 B 1 E
